@@ -416,4 +416,182 @@ export default function App() {
     );
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F4F4F4',
+    padding: 20,
+    paddingTop: 60,
+  },
 
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+
+  button: {
+    backgroundColor: '#000',
+    padding: 16,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+
+  buttonText: {
+    color: '#FFF',
+    fontWeight: 'bold',
+  },
+
+  input: {
+    backgroundColor: '#FFF',
+    borderWidth: 1,
+    borderColor: '#DDD',
+    padding: 14,
+    borderRadius: 10,
+    marginBottom: 15,
+  },
+
+  label: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+
+  
+  dropdown: {
+    backgroundColor: '#FFF',
+    borderWidth: 1,
+    borderColor: '#DDD',
+    padding: 14,
+    borderRadius: 10,
+    marginBottom: 15,
+  },
+
+  dropdownText: {
+    fontSize: 16,
+    color: '#000',
+  },
+
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  modalBox: {
+    backgroundColor: '#FFF',
+    width: '80%',
+    borderRadius: 12,
+    padding: 20,
+  },
+
+  modalItem: {
+    paddingVertical: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#EEE',
+  },
+
+  modalText: {
+    fontSize: 16,
+  },
+
+  cancelText: {
+    textAlign: 'center',
+    marginTop: 20,
+    fontWeight: 'bold',
+    color: 'red',
+  },
+
+  card: {
+    backgroundColor: '#EAEAEA',
+    width: '47%',
+    margin: '1.5%',
+    padding: 12,
+    borderRadius: 12,
+  },
+
+  imagePlaceholder: {
+    height: 90,
+    backgroundColor: '#D1D1D1',
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+
+  cardTitle: {
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+
+  cardText: {
+    color: '#666',
+    marginBottom: 5,
+  },
+
+  cardPrice: {
+    fontWeight: 'bold',
+  },
+
+  largeImage: {
+    height: 220,
+    backgroundColor: '#D9D9D9',
+    borderRadius: 14,
+    marginBottom: 20,
+  },
+
+  detailTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+
+  detailText: {
+    fontSize: 16,
+    color: '#666',
+    marginBottom: 10,
+  },
+
+  detailPrice: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+
+  orderCard: {
+    backgroundColor: '#FFF',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+
+  adminButton: {
+    marginTop: 15,
+    backgroundColor: '#000',
+    padding: 14,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+
+  adminText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+
+  emptyBox: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  emptyText: {
+    fontSize: 16,
+    color: '#777',
+  },
+
+  back: {
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 16,
+  },
+});
