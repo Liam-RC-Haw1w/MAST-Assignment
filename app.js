@@ -203,4 +203,217 @@ export default function App() {
             {course || 'Choose Course'}
           </Text>
         </TouchableOpacity>
+ <Modal
+          transparent
+          visible={showCourseMenu}
+          animationType="fade"
+        >
+          <View style={styles.modalOverlay}>
+            <View style={styles.modalBox}>
+              {[
+                'Starter',
+                'Main',
+                'Dessert',
+                'Drinks',
+              ].map((item) => (
+                <TouchableOpacity
+                  key={item}
+                  style={styles.modalItem}
+                  onPress={() => {
+                    setCourse(item);
+                    setShowCourseMenu(false);
+                  }}
+                >
+                  <Text
+                    style={styles.modalText}
+                  >
+                    {item}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+
+              <TouchableOpacity
+                onPress={() =>
+                  setShowCourseMenu(false)
+                }
+              >
+                <Text
+                  style={styles.cancelText}
+                >
+                  Cancel
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+
+        <TextInput
+          placeholder="Price"
+          keyboardType="numeric"
+          style={styles.input}
+          value={price}
+          onChangeText={setPrice}
+        />
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={addDish}
+        >
+          <Text style={styles.buttonText}>
+            Save Dish
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() =>
+            setScreen('dashboard')
+          }
+        >
+          <Text style={styles.back}>
+            Back
+          </Text>
+        </TouchableOpacity>
+      </ScrollView>
+    );
+  }
+
+  if (screen === 'currentMenu') {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.title}>
+          Current Menu
+        </Text>
+
+        {dishes.length === 0 ? (
+          <Text>No dishes added yet.</Text>
+        ) : (
+          <FlatList
+            data={dishes}
+            keyExtractor={(item) => item.id}
+            numColumns={2}
+            renderItem={({ item }) => (
+              <View style={styles.card}>
+                <View
+                  style={
+                    styles.imagePlaceholder
+                  }
+                />
+
+                <Text style={styles.cardTitle}>
+                  {item.name}
+                </Text>
+
+                <Text style={styles.cardText}>
+                  {item.description}
+                </Text>
+
+                <Text style={styles.cardText}>
+                  {item.course}
+                </Text>
+
+                <Text style={styles.cardPrice}>
+                  R{item.price}
+                </Text>
+              </View>
+            )}
+          />
+        )}
+
+        <TouchableOpacity
+          onPress={() =>
+            setScreen('dashboard')
+          }
+        >
+          <Text style={styles.back}>
+            Back
+          </Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+    );
+  }
+
+  if (screen === 'orders') {
+    return (
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.title}>
+          Client Orders
+        </Text>
+
+        {orders.length === 0 ? (
+          <Text>No orders yet.</Text>
+        ) : (
+          orders.map((item, index) => (
+            <View
+              key={index}
+              style={styles.orderCard}
+            >
+              <Text
+                style={styles.cardTitle}
+              >
+                {item.name}
+              </Text>
+
+              <Text
+                style={styles.cardText}
+              >
+                {item.course}
+              </Text>
+
+              <Text
+                style={styles.cardText}
+              >
+                R{item.price}
+              </Text>
+            </View>
+          ))
+        )}
+
+        <TouchableOpacity
+          onPress={() =>
+            setScreen('dashboard')
+          }
+        >
+          <Text style={styles.back}>
+            Back
+          </Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+    );
+  }
+
+  if (screen === 'details') {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.largeImage} />
+
+        <Text style={styles.detailTitle}>
+          {selectedDish?.name}
+        </Text>
+
+        <Text style={styles.detailText}>
+          {selectedDish?.description}
+        </Text>
+
+        <Text style={styles.detailText}>
+          {selectedDish?.course}
+        </Text>
+
+        <Text style={styles.detailPrice}>
+          R{selectedDish?.price}
+        </Text>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() =>
+            placeOrder(selectedDish)
+          }
+        >
+          <Text style={styles.buttonText}>
+            Place Order
+          </Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+    );
+  }
+}
 
